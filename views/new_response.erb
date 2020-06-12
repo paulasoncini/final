@@ -1,0 +1,21 @@
+<h2>
+    <i class="far fa-calendar-alt"></i>
+    <%= @location[:date] %>
+</h2>
+<h1>Send your response for <%= @location[:title] %></h1>
+
+<form action="/locations/<%= @location[:id] %>/responses/create" method="post">
+  <div class="form-group">
+    <label>Can you help?</label>
+    <select class="form-control" name="can_help">
+      <option value="1">Yes, I am happy to!</option>
+      <option value="0">Sorry, I am busy that day.</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label>Comments</label>
+    <textarea class="form-control" rows="3" name="comments"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit response</button>
+</form>

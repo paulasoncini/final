@@ -1,0 +1,40 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 25px;
+}
+
+h1, h2, h3 {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 20px;
+}
+
+  .navbar {
+    background-color: rgb(230, 227, 227);
+  }
+  
+  .button1 {
+    background-color: rgb(230, 227, 227);
+    border: none;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1:hover {
+    background-color: rgb(233, 111, 62);
+    border: none;
+  }
+
+  .btn {
+    font-family: 'PT Sans Caption', sans-serif;
+    background-color:  rgb(212, 34, 49);
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: rgb(243, 113, 124);
+  }

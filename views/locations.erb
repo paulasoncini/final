@@ -1,0 +1,5 @@
+<h1>How to help</h1>
+
+<% for location in @locations %>
+    <p><a href="/locations/<%= location[:id] %>"><%= location[:title] %></a></p>
+<% end %>

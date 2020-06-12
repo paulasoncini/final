@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-sm-9">
+        <h2>
+            <i class="far fa-calendar-alt"></i>
+            <%= @location[:date_and_time] %>
+        </h2>
+        <h1><%= @location[:title] %></h1>
+        <p><%= @location[:description] %></p>
+        
+        <p>You'll need to go to <%= @location[:location] %>, located at <%= @location[:address] %> (see map below)</p>
+
+        <iframe
+        width="600"
+        height="450"
+        frameborder="0" 
+        style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAWxhBkl0PHxV_jfwk0EDmlEXpZDG9aEnY&q=<%= @lat_long %>&zoom=15" allowfullscreen>
+        </iframe>
+        
+        <% for response in @responses %>
+            
+            <% user = @users_table.where(:id => response[:user_id]).to_a[0] %>
+
+            <div class="media">
+                <% if response[:can_help] %>
+                    <i class="fas fa-thumbs-up fa-3x mr-3"></i>
+                <% else %>
+                    <i class="fas fa-thumbs-down fa-3x mr-3"></i>
+                <% end %>
+                <div class="media-body">
+                    <h5 class="mt-0"><%= user[:name] %></h5>
+                    <%= response[:comments] %>
+                </div>
+            </div>
+
+        <% end %>
+
+        <% if @current_user %>
+            <p class="mt-5">
+                <a href="/locations/<%= @location[:id] %>/responses/new" class="btn btn-primary">Send response</a>
+            </p>
+        <% else %>
+            <p class="mt-5">Please login before sending your response:</p>
+            <p><a href="/users/new" class="btn btn-primary">Sign up</a>
+            <a href="/logins/new" class="btn btn-primary">Sign in</a>
+            </p>
+          <% end %>
+
+
+    </div>
+    <div class="col-sm-3">
+        <h3>When:</h3>
+        <p><%= @location[:date_and_time] %></p>
+        <h3>Where:</h3>
+        <p><%= @location[:location] %></p>
+        <h3># people helping so far:</h3>
+        <p><%= @count %></p>
+    </div>
+</div>
